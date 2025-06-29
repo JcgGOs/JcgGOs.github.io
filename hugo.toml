@@ -18,7 +18,6 @@ pygmentsCodeFences = true
   name = "JcGgOs"
   github = "JcGgOs"
   email = "287828521@qq.com"
-  gaid = "Your Google Analytics ID"
   twitter = "bad_leek"
 
 [caches]
