@@ -1,0 +1,26 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'JcGgOs'
+theme = 'temple'
+copyright = "©2022 - 2025 Tao T"
+
+pygmentsStyle = "friendly"
+pygmentsCodeFences = true
+
+[params]
+  topmenu = "categories"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[params.author]
+  name = "JcGgOs"
+  github = "JcGgOs"
+  email = "287828521@qq.com"
+  gaid = "Your Google Analytics ID"
+  twitter = "bad_leek"
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

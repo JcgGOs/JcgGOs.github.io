@@ -1,0 +1,55 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+
+<div class="pure-g">
+  <div class="pure-u-1-24 pure-u-md-2-24 pure-u-lg-5-24"></div>
+  <div class="pure-u-11-12 pure-u-md-20-24 pure-u-lg-7-12">
+    <div class="post">
+
+      <div class="post-title">
+        <p class="footnote" style="float: right;">
+            <span>
+          {{ if not .Date.IsZero }}
+            <time datetime="{{ .Date }}">
+                📅
+              {{ if .Site.Params.dateformatpretty }}
+                {{ .Date.Format .Site.Params.dateformatpretty }}
+              {{ else }}
+                {{ .Date.Format "01-02-2006" }}
+              {{ end }}
+            </time>
+          {{ end }}
+        </span>
+        {{ $baseurl := .Site.BaseURL }}
+        {{ if isset .Params "tags" }}
+        <span style="display: block;">
+        🏷️:  {{ range .Params.tags }}<a href="{{ $baseurl }}tags/{{ . | urlize }}">#{{ . }}</a> {{ end }}
+        </span>
+        {{ end }}
+
+        {{ if isset .Params "categories" }}
+        <span style="display: block;">
+        📋:  {{ range .Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
+        </span>
+        {{ end }}
+        {{ if isset .Params "series" }}
+        <span style="display: block;">
+        series: [ {{ range .Params.series }}<a href="{{ $baseurl }}series/{{ . | urlize }}">{{ . }}</a> {{ end }}]
+        </span>
+        {{ end }}
+        </p>
+        <h1>{{ if .Draft }}DRAFT: {{end}}{{ .Title }}</h1>
+      </div>
+
+      <div class="post-content">
+        {{ if or .Params.toc (and (eq .Params.toc nil) .Site.Params.toc) -}}
+        {{ .TableOfContents }}
+        {{- end }}
+        {{ replace .Content "<table>" "<table class='pure-table pure-table-striped'>" | safeHTML }}
+      </div>
+    </div>
+  </div>
+  <div class="pure-u-1-24 pure-u-md-2-24 pure-u-lg-5-24"></div>
+</div>
+
+{{ partial "footer.html" . }}
