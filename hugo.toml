@@ -6,6 +6,7 @@ copyright = "©2022 - 2025"
 
 pygmentsStyle = "friendly"
 pygmentsCodeFences = true
+favicon_location = "favicon.ico" # This assumes it's in static/favicon.ico
 
 [params]
   topmenu = "categories"
