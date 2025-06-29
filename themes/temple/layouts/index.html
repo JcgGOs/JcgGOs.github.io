@@ -14,27 +14,24 @@
 		  {{ if .Draft }}
 		  DRAFT: 
 		  {{ end }}
-		  <a class="post-list" href="{{ .Permalink }}">{{ $page.Title }}</a>
-
-      <p class="footnote">
-        <time datetime="{{ $page.Date }}">
-          {{ if .Site.Params.dateformatpretty }}
+        <a class="post-list" href="{{ .Permalink }}">{{ $page.Title }}</a>
+        <time datetime="{{ $page.Date }}" style="font-size: 0.75em;">
+        📅
+        {{ if .Site.Params.dateformatpretty }}
             {{ $page.Date.Format .Site.Params.dateformatpretty }}
-          {{ else }}
-            {{ $page.Date.Format "01-02-2006" }}
-          {{ end }}
-        </time>
-
-        {{ if or $page.Params.tags $page.Params.categories $page.Params.series }}
-        |
+        {{ else }}
+            {{ $page.Date.Format "2006-01-02" }}
         {{ end }}
+        </time>
+    
+      <p class="footnote" style="float: right;">
 
         {{ with $page.Params.tags }}
-        tags: [ {{ range $page.Params.tags}}<a href="{{ $baseurl }}tags/{{ . | urlize }}">{{ . }}</a> {{ end }}]
+          🏷️  {{ range $page.Params.tags}}<a href="{{ $baseurl }}tags/{{ . | urlize }}">#{{ . }}</a> {{ end }} 
         {{ end }}
 
         {{ with $page.Params.categories }}
-        categories: [ {{ range $page.Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}]
+          📋 {{ range $page.Params.categories }}<a href="{{ $baseurl }}categories/{{ . | urlize }}">{{ . }}</a> {{ end }}
         {{ end }}
 
         {{ with $page.Params.series }}

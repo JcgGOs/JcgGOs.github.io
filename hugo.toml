@@ -2,7 +2,7 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'JcGgOs'
 theme = 'temple'
-copyright = "©2022 - 2025 Tao T"
+copyright = "©2022 - 2025"
 
 pygmentsStyle = "friendly"
 pygmentsCodeFences = true
